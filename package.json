@@ -4,7 +4,10 @@
   "description": "",
   "main": "src.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . && js-yaml ./*.yml",
+    "test:unit": "nyc --recursive --reporter=html --reporter=text mocha test/unit/**",
+    "test:integration": "nyc --reporter=html --reporter=text mocha test/integration/**.js",
+    "test": "npm run test:unit"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,67 @@
   "bugs": {
     "url": "https://github.com/ahmedalzubidy/appTest/issues"
   },
-  "homepage": "https://github.com/ahmedalzubidy/appTest#readme"
+  "homepage": "https://github.com/ahmedalzubidy/appTest#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "promise": "^8.0.1",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "ajv": "^6.4.0",
+    "bundle-dependencies": "^1.0.2",
+    "chai": "^4.1.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "js-yaml": "^3.11.0",
+    "mocha": "^5.1.1",
+    "nyc": "^11.1.0",
+    "sinon": "^5.1.1"
+  },
+  "bundledDependencies": [
+    "fs",
+    "http",
+    "promise",
+    "request",
+    "request-promise"
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+    },
+    "extends": "airbnb-base",
+    "rules": {
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allow": [
+            "_id"
+          ]
+        }
+      ],
+      "import/newline-after-import": 0,
+      "import/no-dynamic-require": 0,
+      "prefer-arrow-callback": 0,
+      "consistent-return": 0,
+      "prefer-template": 0,
+      "prefer-destructuring": 0,
+      "no-console": 0,
+      "comma-dangle": 0,
+      "no-throw-literal": 0,
+      "dot-notation": 0,
+      "quote-props": 0,
+      "max-len": 0,
+      "no-else-return": 0
+    }
+  },
+  "eslintIgnore": [
+    "node_modules/*",
+    "coverage/**"
+  ]
 }
