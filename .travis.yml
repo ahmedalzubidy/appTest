@@ -5,8 +5,9 @@ node_js:
 jobs:
   include:
     - stage: test and lint
-      script:
-        - npm run test
-        - npm run lint
+      env:
+        - lintAndTest=test
+        - lintAndTest=lint
+      script: "npm run $lintAndTest"
     - stage: security
       script: npx nsp check
