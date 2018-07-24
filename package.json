@@ -4,7 +4,7 @@
   "description": "",
   "main": "src.js",
   "scripts": {
-    "lint": "eslint . && js-yaml ./*.yml",
+    "lint": "eslint . && js-yaml ./.travis.yml",
     "test:unit": "nyc --recursive --reporter=html --reporter=text mocha test/unit/**",
     "test:integration": "nyc --reporter=html --reporter=text mocha test/integration/**.js",
     "test": "npm run test:unit"
@@ -79,6 +79,7 @@
   },
   "eslintIgnore": [
     "node_modules/*",
-    "coverage/**"
+    "coverage/**",
+    "test/**"
   ]
 }

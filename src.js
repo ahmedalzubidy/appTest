@@ -1,11 +1,11 @@
-console.log('hello world!')
+console.log('hello world!');
 
-var x = 1;
+const x = 1;
 
-class appTest {}
+class AppTest {}
 
-appTest.prototype.cal = function cal(y){
-    return (x+y);
-}
+AppTest.prototype.cal = function cal(y) {
+  return (x + y);
+};
 
-module.exports = new appTest();
+module.exports = new AppTest();
