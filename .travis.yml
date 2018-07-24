@@ -11,3 +11,4 @@ jobs:
         script: npm run test
     - stage: security
       script: npx nsp check
+      
